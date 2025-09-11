@@ -1,3 +1,4 @@
+/* Universal settings for the whole project */
 :root {
   --bg: #2f2f2f;
   --text: #ececec;
@@ -15,10 +16,6 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
 }
 
 body {
@@ -41,8 +38,14 @@ a:focus-visible {
 }
 
 .corner {
-  position: fixed;
   z-index: 100;
+}
+.corner-topleft,
+.corner-topright,
+.corner-bottomleft,
+.corner-bottomright {
+  position: fixed;
+  z-index: inherit;
   padding: 12px;
 }
 
@@ -102,6 +105,12 @@ a:focus-visible {
 }
 
 .socials {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.socials nav {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -243,7 +252,7 @@ a:focus-visible {
   dominant-baseline: middle;
 }
 
-.headphones {
+.boba {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -252,12 +261,309 @@ a:focus-visible {
   box-sizing: border-box;
 }
 
-.headphones-img {
-  max-width: 125vw;
-  max-height: 120vh;
-  width: auto;
+.boba-img {
+  width: 22vw;
   height: auto;
+  max-width: none;
+  max-height: none;
   object-fit: contain;
+  transform: translateY(-8vh);
 }
 
+.about {
+  position: relative;
+  padding-top: 16vh;
+  padding-bottom: 12vh;
+}
 
+.about-wrap {
+  max-width: 1400px;
+  width: 92vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 5vw;
+  align-items: start;
+}
+
+.about-card {
+  position: relative;
+  background: var(--bg);
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  color: var(--text);
+  padding: clamp(18px, 2vw, 28px);
+}
+
+.about-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate(10px, 10px);
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  z-index: -1;
+}
+
+.photo-card {
+  padding: clamp(12px, 1.2vw, 18px);
+  width: min(37.5vw, 525px);
+}
+
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.about-text h2 {
+  margin: 0 0 12px 0;
+  font-size: clamp(24px, 3.2vw, 38px);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.about-text p {
+  margin: 0 0 14px 0;
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.65;
+}
+
+.portfolio {
+  padding-top: 16vh;
+  padding-bottom: 22vh;
+}
+
+.cards {
+  width: min(92vw, 1100px);
+  transform: translateX(700px);
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.card {
+  --img-w: 320px;
+  --img-h: 200px;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  background: var(--bg);
+  border: 2px solid var(--text);
+  border-radius: 6px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate(10px, 10px);
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  z-index: -1;
+}
+
+.card-body {
+  display: grid;
+  grid-template-columns: 1fr var(--img-w);
+  gap: 22px;
+  align-items: center;
+  padding: clamp(16px, 2.2vw, 26px);
+}
+
+.card-title {
+  margin: 0 0 8px 0;
+  font-size: clamp(20px, 2.3vw, 30px);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.card-desc {
+  margin: 0;
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.6;
+}
+
+.card-image {
+  width: var(--img-w);
+  height: var(--img-h);
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #2a2a2a;
+  outline: 1px solid rgba(236,236,236,.3);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.card:hover {
+  filter: drop-shadow(0 0 0.2rem var(--accent));
+}
+
+.card--daa { --img-w: 320px; --img-h: 200px; }
+.card--pdf { --img-w: 320px; --img-h: 200px; }
+.card--blood { --img-w: 320px; --img-h: 200px; }
+.card--lexo { --img-w: 320px; --img-h: 200px; }
+.card--brain { --img-w: 320px; --img-h: 200px; }
+.card--credit { --img-w: 320px; --img-h: 200px; }
+
+.resume-panel {
+  width: min(92vw, 1000px);
+  margin: 0 auto;
+}
+
+.resume-frame {
+  position: relative;
+  width: 100%;
+  height: min(78vh, 1000px);
+  border-radius: 6px;
+  overflow: hidden;
+  outline: 1px solid rgba(236,236,236,.35);
+  background: #0f1822;
+}
+
+.resume-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+  background: #ffffff;
+}
+
+.resume-open {
+  position: absolute;
+  inset: 0;
+}
+
+.service {
+  padding-top: 22vh;
+  padding-bottom: 22vh;
+}
+
+.panel {
+  width: min(86vw, 900px);
+  margin: 0 auto 42px auto;
+  position: relative;
+  background: var(--bg);
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  color: var(--text);
+}
+
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translate(10px, 10px);
+  border: 2px solid var(--text);
+  border-radius: 6px;
+  z-index: -1;
+}
+
+.panel-body {
+  padding: clamp(18px, 2.2vw, 28px);
+}
+
+.panel-title {
+  margin: 0 0 10px 0;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 800;
+  color: var(--text);
+}
+
+.panel-text {
+  margin: 0;
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.65;
+}
+
+.card--textonly .card-body {
+  grid-template-columns: 1fr;
+}
+
+.card--textonly .card-image {
+  display: none;
+}
+
+.ai {
+  padding-top: 22vh;
+  padding-bottom: 16vh;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-left: 32vw;
+}
+
+.spine-figure {
+  margin: 0;
+}
+
+.spine-svg {
+  width: min(92vw, 980px);
+  height: auto;
+  display: block;
+  margin-inline: auto;
+  border-radius: 6px;
+}
+
+.spine-caption {
+  text-align: center;
+  font-size: clamp(12px, .95vw, 14px);
+  margin-top: 10px;
+  opacity: .85;
+}
+
+.hotspot .dot {
+  fill: #7bbcff;
+  stroke: #1b2735;
+  stroke-width: 3;
+}
+
+.hotspot .label {
+  display: none;
+}
+
+.hotspot:focus .label,
+.hotspot:hover .label {
+  display: block;
+}
+
+.bubble {
+  fill: #102030;
+  stroke: #7bbcff;
+  stroke-width: 1.5;
+  opacity: .96;
+}
+
+.bubble-title {
+  fill: #eaf4ff;
+  font-weight: 800;
+  font-size: 16px;
+}
+
+.bubble-text {
+  font-size: 14px;
+  fill: #000;
+  color: #000;
+  line-height: 1.4;
+  word-wrap: break-word;
+}
+
+.ai-prompt {
+  width: 100%;
+  height: min(28vh, 300px);
+  background: #0f1822;
+  color: #cfe7ff;
+  border: 2px solid #7bbcff;
+  border-radius: 6px;
+  padding: 12px;
+  font: 400 14px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; /* https://mantine.dev/theming/typography/ */
+  resize: vertical;
+}
